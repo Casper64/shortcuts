@@ -1,0 +1,2 @@
+# shortcuts
+Simple shortcut library
