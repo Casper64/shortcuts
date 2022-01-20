@@ -6,7 +6,7 @@ interface ShortcutCallbackPrivate {
     (event: KeyboardEvent): boolean;
 }
 export interface ShortcutOptions {
-    callback: ShortcutCallback;
+    callback: (event: KeyboardEvent) => void;
     stopProppagation?: boolean;
     preventDefault?: boolean;
 }
@@ -36,6 +36,7 @@ export declare class Shortcut {
     private onKeyUp;
     private onKeyDown;
     constructor(options: ShortcutOptions, ...characters: ShortcutCharacter[]);
+    attach(): void;
     detach(): void;
     private _onKeyDown;
     private _onKeyUp;

@@ -20,7 +20,7 @@ interface ShortcutCallbackPrivate {
 }
 
 export interface ShortcutOptions {
-    callback: ShortcutCallback
+    callback: (event: KeyboardEvent) => void
     stopProppagation?: boolean
     preventDefault?: boolean
 }
@@ -38,14 +38,12 @@ export class ShortcutBus {
     private onKeyDown = this._onKeyDown.bind(this);
 
     constructor () {
-        if (typeof window !== 'undefined') {
-            window.addEventListener("keyup", this.onKeyUp)
-            window.addEventListener("keydown", this.onKeyDown)
-        }
+        this.attach();
     }
 
     public attach() {
         if (typeof window !== 'undefined') {
+            this.detach();
             window.addEventListener("keyup", this.onKeyUp)
             window.addEventListener("keydown", this.onKeyDown)
         }
@@ -149,8 +147,15 @@ export class Shortcut {
     constructor(options: ShortcutOptions, ...characters: ShortcutCharacter[]) {
         this.options = { preventDefault: true, stopProppagation: true, ...options }
         this.characters = characters
-        window.addEventListener('keydown', this.onKeyDown)
-        window.addEventListener('keyup', this.onKeyUp)
+        this.attach()
+    }
+
+    public attach() {
+        if (typeof window !== 'undefined') {
+            this.detach();
+            window.addEventListener("keyup", this.onKeyUp)
+            window.addEventListener("keydown", this.onKeyDown)
+        }
     }
 
     public detach() {
