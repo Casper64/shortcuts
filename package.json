@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "keywords": [
     "typescript",
-    "event"
+    "event",
+    "shortcut"
   ],
   "author": "Casper Kuethe",
-  "license": "ISC"
+  "license": "MIT"
 }
