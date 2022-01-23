@@ -9,5 +9,10 @@
     "shortcut"
   ],
   "author": "Casper Kuethe",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Casper64/shortcuts"
+  },
+  "homepage": "https://github.com/Casper64/shortcuts"
 }
