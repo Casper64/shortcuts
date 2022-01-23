@@ -14,10 +14,10 @@ const options = {
   }
 }
 
-// Add as many characters ass you want 
+// Add as many characters as you want 
 Shortcuts.on(options, "ctrl", "s", "a")
 // Or
-const characters = ["ctrl", "s", "a"]****
+const characters = ["ctrl", "s", "a"]
 Shortcuts.on(options, ...characters)
 ```
 You will get autocomplete on some values that are hard-typed, but you can use any value equal to `Event.key`
