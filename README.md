@@ -17,9 +17,10 @@ const options = {
 // Add as many characters ass you want 
 Shortcuts.on(options, "ctrl", "s", "a")
 // Or
-const characters = ["ctrl", "s", "a"]
+const characters = ["ctrl", "s", "a"]****
 Shortcuts.on(options, ...characters)
 ```
+You will get autocomplete on some values that are hard-typed, but you can use any value equal to `Event.key`
 
 ## Examples
 Add an on save (ctrl+s) shortcut
@@ -42,6 +43,7 @@ new Shortcut({
 ```
 
 ## API Class ShortcutBus
+The export default value has the type `ShortcutBus`
 ```ts
 import { ShortcutBus } from '@cetfox24/shortcuts'
 
@@ -83,3 +85,29 @@ new Shortcut(options: ShortcutOptions, ...characters: ShortcutCharacter[])
 
 The keyup and keydown events are initiated on construction if the window object is defined. Call `Shortcut.attach()` to attach all eventListeners to the window object.
 And use `Shortcut.detach()` to detach the eventListeners from the window object.
+
+## Other API
+
+ShortcutCharacter
+```ts
+// To keep track of metadeta so autocomplete will work
+type OtherString = string & {}
+type ShortcutCharacter = 'a'|'b'|'c'|'d'|'e'|'f'|'g'|'h'|'i'|'j'|
+                         'k'|'l'|'m'|'n'|'o'|'p'|'q'|'r'|'s'|'t'|
+                         'u'|'v'|'w'|'x'|'y'|'z'|
+                         'ctrl'|'shift'|'alt'|'tab' | OtherString
+```          
+ShortcutCallback
+```ts
+export interface ShortcutCallback {
+    (event: KeyboardEvent): void
+}
+```              
+ShortcutOptions
+```ts
+export interface ShortcutOptions {
+    callback: ShortcutCallback
+    stopProppagation?: boolean
+    preventDefault?: boolean
+}
+```

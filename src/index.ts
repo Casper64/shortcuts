@@ -1,8 +1,8 @@
-
+type OtherString = string & {}
 export type ShortcutCharacter = 'a'|'b'|'c'|'d'|'e'|'f'|'g'|'h'|'i'|'j'|
                          'k'|'l'|'m'|'n'|'o'|'p'|'q'|'r'|'s'|'t'|
                          'u'|'v'|'w'|'x'|'y'|'z'|
-                         'ctrl'|'shift'|'alt'|'tab'
+                         'ctrl'|'shift'|'alt'|'tab' | OtherString
 
 const shortcutMap = {
     "Control": "ctrl",
@@ -20,12 +20,12 @@ interface ShortcutCallbackPrivate {
 }
 
 export interface ShortcutOptions {
-    callback: (event: KeyboardEvent) => void
+    callback: ShortcutCallback
     stopProppagation?: boolean
     preventDefault?: boolean
 }
 
-export interface KeyListener {
+interface KeyListener {
     key: string
     callbacks: ShortcutCallbackPrivate[]
 }
@@ -194,7 +194,6 @@ export class Shortcut {
         }
     }
 }
-
 
 const bus = new ShortcutBus();
 

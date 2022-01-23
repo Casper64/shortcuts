@@ -1,6 +1,6 @@
 {
   "name": "@cetfox24/shortcuts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small library for adding shortcuts into your project",
   "main": "lib/index.js",
   "keywords": [

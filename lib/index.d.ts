@@ -1,18 +1,12 @@
-export declare type ShortcutCharacter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'ctrl' | 'shift' | 'alt' | 'tab';
+declare type OtherString = string & {};
+export declare type ShortcutCharacter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'ctrl' | 'shift' | 'alt' | 'tab' | OtherString;
 export interface ShortcutCallback {
     (event: KeyboardEvent): void;
 }
-interface ShortcutCallbackPrivate {
-    (event: KeyboardEvent): boolean;
-}
 export interface ShortcutOptions {
-    callback: (event: KeyboardEvent) => void;
+    callback: ShortcutCallback;
     stopProppagation?: boolean;
     preventDefault?: boolean;
-}
-export interface KeyListener {
-    key: string;
-    callbacks: ShortcutCallbackPrivate[];
 }
 export declare class ShortcutBus {
     private keyListeners;
