@@ -2,7 +2,9 @@
 Simple shortcut library made by Casper Kuethe
 
 ## Installation
-`npm install @cetfox24/shortcuts`
+```
+npm install @cetfox24/shortcuts
+```
 
 ## Usage
 ```ts
