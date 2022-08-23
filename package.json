@@ -14,5 +14,8 @@
     "type": "git",
     "url": "https://github.com/Casper64/shortcuts"
   },
-  "homepage": "https://github.com/Casper64/shortcuts"
+  "homepage": "https://github.com/Casper64/shortcuts",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
