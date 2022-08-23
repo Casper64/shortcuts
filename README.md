@@ -24,7 +24,7 @@ Shortcuts.on(["ctrl", "s"], save, {
 Shortcuts.off(["ctrl", "s"], save);
 
 // Or
-import { shortcut } from "../../src/index";
+import { shortcut } from "@cetfox24/shortcuts";
 
 // Register the shortcut
 const off = shortcut(["ctrl", "s"], save, {
