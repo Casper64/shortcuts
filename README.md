@@ -10,7 +10,7 @@ npm install https://github.com/Casper64/shortcuts
 In this example we register a shortcut that will be executed when the ctrl+s key are pressed and that prevents the default eventHandler to be executed.
 
 ```ts
-import Shortcuts from '@cetfox24/shortcuts'
+import Shortcuts from "@cetfox24/shortcuts"
 
 function save(event: KeyboardEvent) {
   // Do important stuff...
@@ -24,7 +24,7 @@ Shortcuts.on(["ctrl", "s"], save, {
 Shortcuts.off(["ctrl", "s"], save);
 
 // Or
-import { shortcut } from "@cetfox24/shortcuts";
+import { shortcut } from "@cetfox24/shortcuts"
 
 // Register the shortcut
 const off = shortcut(["ctrl", "s"], save, {
@@ -39,7 +39,7 @@ You will get autocomplete on some values that are hard-typed, but you can use an
 ## API Class ShortcutBus
 The export default value has the type `ShortcutBus`
 ```ts
-import { ShortcutBus } from '@cetfox24/shortcuts'
+import { ShortcutBus } from "@cetfox24/shortcuts"
 ```
 
 Add a callback when the specified characters are all pressed
@@ -61,7 +61,7 @@ And use `ShortcutBus.detach()` to detach the eventListeners from the window obje
 ## API function shortcut
 This function registers a shortcut on the default ShortcutBus and returns a function which will remove the shortcut from the bus when executed.
 ```ts
-import { shortcut } from '@cetfox24/shortcuts'
+import { shortcut } from "@cetfox24/shortcuts"
 
 const off = shortcut(characters: ShortcutCharacter[], callback: ShortcutCallback, options: ShortcutOptions = {});
 ```
